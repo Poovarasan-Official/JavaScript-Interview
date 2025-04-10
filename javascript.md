@@ -1,5 +1,5 @@
 ### Connect with Us
-[![LinkedIn](https://img.icons8.com/fluency/48/linkedin.png)](https://www.linkedin.com/in/poovarasan-r-3732a6169/)
+[![LinkedIn](https://img.icons8.com/fluency/48/linkedin.png)](https://www.linkedin.com/in/poovarasan-r/)
 
 <!-- Question 1 -->
 
