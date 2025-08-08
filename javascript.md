@@ -8,8 +8,8 @@
 ### Answer :
 
 - `var` is a function scope(variables declared inside a function are not accessible outside the function) or global scope variable, var is NOT block scoped (it ignores { } in if/for/while). It can be re-assigned & re-declared.
-- `let` is a block scope variable(only works inside { } where it’s declared). It can be re-assign but can't be re-declared.
-- `const ` is a block scope varibale, It can't be re-assign or re-declaredd.
+- `let` is a block scope variable(only works inside { } where it’s declared, no matter if it’s a function, loop, or if). It can be re-assign but can't be re-declared.
+- `const ` is a block scope varibale, It can't be re-assign or re-declared. But if the value is an object or array, its value can still change.
 
 ### Example Code:
 
@@ -77,17 +77,15 @@ console.log(firstName); // Output: Poovarasan
 firstName = "Poovarasan Developer"; // Re-assigning the variable
 console.log(firstName); // Output: Poovarasan Developer
 // ---------------Example 2 -----------------//
-let example2 = "Hello Poovarasan";
-function testlet() {
-  if (true) {
-    let fullName = "Poovarasan R";
-    console.log(example2); // Output: Hello Poovarasan
-    console.log(fullName); // Output: Poovarasan R
-  }
+if (true) {
+  let a = 10;
 }
-testlet();
-console.log(example2); // Output: Hello Poovarasan
-console.log(fullName); // ❌ ReferenceError: fullName is not defined
+console.log(a); // ❌ Error (block scope works)
+
+function testLet() {
+  let b = 20;
+}
+console.log(b); // ❌ Error (function is also a block)
 
 //------------Example 3 ----------------//
 if (true) {
@@ -107,26 +105,48 @@ console.log(window.name); // ❌ undefined
 
 ```javascript
 // ============| const Examples |============== //
+// Must initialize immediately
+const firstName; // ❌ Error: Missing initializer
+const firstName = "Poovarasan"; // ✅ Works
+
 const firstName = "Poovarasan"; // Declaring and initializing a variable
-console.log(firstName); // Output: Poovarasan
+console.log(firstName); // Output: ✅ Poovarasan
 
-// let firstName = "R"; // Re-declaring and re-assigning the variable
-// console.log(firstName); // ❌ Error:  Identifier 'firstName' has already been declared
+// Cannot be redeclared
+const city = "Chennai";
+const city = "Madurai"; // ❌ Error: Identifier 'city' has already been declared
 
-// firstName = "Poovarasan Developer"; // Re-assigning the variable
-// console.log(firstName); // ❌ Error: Poovarasan Developer
+// Cannot be reassigned
+const age = 25;
+age = 30; // ❌ Error: Assignment to constant variable
+
 // ---------------Example 2 -----------------//
-const example2 = "Hello Poovarasan";
-function testconst() {
-  if (true) {
-    const fullName = "Poovarasan R"; // 'fullName' is only accessible within this block
-    console.log(example2); // Output: Hello Poovarasan
-    console.log(fullName); // Output: Poovarasan R
-  }
+if (true) {
+  const fruit = "Apple";
+  console.log(fruit); // ✅ Apple
 }
-testconst();
-console.log(example2); // Output: Hello Poovarasan
-console.log(fullName); // ❌ ReferenceError: fullName is not defined
+console.log(fruit); // ❌ Error: fruit is not defined
+
+// ------  Example: Object with const -------//
+const user = { name: "Poovarasan", age: 25 };
+
+// ✅ We can change object properties
+user.age = 26;
+console.log(user); // { name: "Poovarasan", age: 26 }
+
+// ❌ We cannot reassign the whole object
+// user = { name: "R" }; // Error
+
+// ------  Example: Array with const -------//
+const colors = ["red", "green"];
+
+// ✅ Can modify array contents
+colors.push("blue");
+console.log(colors); // ["red", "green", "blue"]
+
+// ❌ Cannot reassign the array
+// colors = ["black"]; // Error
+
 ```
 
 <!-- Question 2 -->
