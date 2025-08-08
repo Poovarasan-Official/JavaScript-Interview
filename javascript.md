@@ -148,7 +148,7 @@ console.log(colors); // ["red", "green", "blue"]
 // colors = ["black"]; // Error
 
 ```
-## 📊 JavaScript: `var` vs `let` vs `const` – Full Comparison Guide
+### 📊 JavaScript: `var` vs `let` vs `const` – Full Comparison Guide
 
 | Feature | <span style="color:orange">`var`</span> | <span style="color:green">`let`</span> | <span style="color:blue">`const`</span> |
 |---------|--------------------------------|--------------------------------|--------------------------------|
