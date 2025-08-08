@@ -85,6 +85,16 @@ function testlet() {
 testlet();
 console.log(example2); // Output: Hello Poovarasan
 console.log(fullName); // ❌ ReferenceError: fullName is not defined
+
+//------------Example 3 ----------------//
+if (true) {
+  var x = 10; // function/global scope
+  let y = 20; // block scope
+}
+
+console.log(x); // ✅ 10 (var escapes block)
+console.log(y); // ❌ Error: y is not defined
+
 ```
 
 ```javascript
