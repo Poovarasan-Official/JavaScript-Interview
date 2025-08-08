@@ -7,7 +7,7 @@
 
 ### Answer :
 
-- `var` is a function scope or global scope variable, It can be re-assigned & re-declared.
+- `var` is a function scope(if declared inside a function, it stays inside that function only) or global scope variable, var is NOT block scoped (it ignores { } in if/for/while). It can be re-assigned & re-declared.
 - `let` is a block scope variable, It can be re-assign but can't be re-declared.
 - `const ` is a block scope varibale, It can't be re-assign or re-declaredd.
 
@@ -32,6 +32,35 @@ function testvar() {
 }
 testvar();
 console.log(lastName); // ❌ Error: lastName is not defined outside the function
+// ------------------Example 3-------------------//
+var greeting = "Hello World!"; // global variable
+
+function sayHello() {
+  console.log(greeting);
+}
+
+function changeGreeting() {
+  greeting = "Hi, JavaScript!"; // No 'var' here → changes the global variable
+}
+
+// Step 1: Call sayHello
+sayHello();        
+// Output: Hello World!
+// (Because greeting is still "Hello World!")
+
+// Step 2: Call changeGreeting
+changeGreeting();  
+// This changes greeting's value from "Hello World!" → "Hi, JavaScript!"
+
+// Step 3: Call sayHello again
+sayHello();        
+// Output: Hi, JavaScript!
+// (Because greeting is now updated)
+
+console.log(greeting); 
+// Output: Hi, JavaScript!
+// (We see the latest value in the global variable)
+
 ```
 
 ```javascript
