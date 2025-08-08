@@ -7,30 +7,33 @@
 
 ### Answer :
 
-- `var` is a function scope(if declared inside a function, it stays inside that function only) or global scope variable, var is NOT block scoped (it ignores { } in if/for/while). It can be re-assigned & re-declared.
-- `let` is a block scope variable, It can be re-assign but can't be re-declared.
+- `var` is a function scope(variables declared inside a function are not accessible outside the function) or global scope variable, var is NOT block scoped (it ignores { } in if/for/while). It can be re-assigned & re-declared.
+- `let` is a block scope variable(only works inside { } where it’s declared). It can be re-assign but can't be re-declared.
 - `const ` is a block scope varibale, It can't be re-assign or re-declaredd.
 
 ### Example Code:
 
 ```javascript
 // ============| var Examples |============== //
-var firstName = "Poovarasan"; // Declaring and initializing a variable
-console.log(firstName); // Output: Poovarasan
+// Redeclaration & Reassignment with var
+var firstName = "Poovarasan"; // Declare + assign
+console.log(firstName); // ✅ "Poovarasan"
 
-var firstName = "R"; // Re-declaring and re-assigning the variable
-console.log(firstName); // Output: R
+var firstName = "R"; // Redeclare (allowed with var)
+console.log(firstName); // ✅ "R"
 
-firstName = "Poovarasan R"; // Re-assigning the variable
-console.log(firstName); // Output: Poovarasan R
+firstName = "Poovarasan R"; // Reassign (also allowed)
+console.log(firstName); // ✅ "Poovarasan R"
 // ---------------Example 2 -----------------//
 var firstName = "Poovarasan";
+
 function testvar() {
-  var lastName = "R"; // 'fullName' is only accessible within this block
-  console.log(firstName); // Output: Poovarasan
-  console.log(lastName); // Output: R
+  var lastName = "R"; // Only available inside function
+  console.log(firstName); //  ✅ "Poovarasan" (global var accessible inside function)
+  console.log(lastName); // ✅ "R"
 }
 testvar();
+
 console.log(lastName); // ❌ Error: lastName is not defined outside the function
 // ------------------Example 3-------------------//
 var greeting = "Hello World!"; // global variable
@@ -91,9 +94,14 @@ if (true) {
   var x = 10; // function/global scope
   let y = 20; // block scope
 }
-
 console.log(x); // ✅ 10 (var escapes block)
 console.log(y); // ❌ Error: y is not defined
+
+//------------Example 4 ----------------//
+// 📌let is not added to window:
+
+let name = "Poovarasan";
+console.log(window.name); // ❌ undefined
 
 ```
 
