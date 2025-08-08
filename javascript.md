@@ -148,6 +148,22 @@ console.log(colors); // ["red", "green", "blue"]
 // colors = ["black"]; // Error
 
 ```
+## 📊 JavaScript: `var` vs `let` vs `const` – Full Comparison Guide
+
+| Feature | <span style="color:orange">`var`</span> | <span style="color:green">`let`</span> | <span style="color:blue">`const`</span> |
+|---------|--------------------------------|--------------------------------|--------------------------------|
+| **Scope** | Function-scoped | Block-scoped | Block-scoped |
+| **Hoisting** | ✅ Hoisted (*initialized as `undefined`*) | ✅ Hoisted (*but not initialized*) | ✅ Hoisted (*but not initialized*) |
+| **Re-declaration** | ✅ Allowed in same scope | ❌ Not allowed in same scope | ❌ Not allowed in same scope |
+| **Re-assignment** | ✅ Allowed | ✅ Allowed | ❌ Not allowed |
+| **Initial Value Required** | ❌ No | ❌ No | ✅ Yes |
+| **Temporal Dead Zone (TDZ)** | ❌ No | ✅ Yes | ✅ Yes |
+| **Attaches to `window` in browser** | ✅ Yes                | ❌ No                              | ❌ No                             
+| **Best Use Case** | Legacy code, not recommended | Variables that change value | Constants that never change |
+
+> \* **TDZ** = Temporal Dead Zone (cannot access before declaration)
+
+---
 
 <!-- Question 2 -->
 
