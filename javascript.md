@@ -325,14 +325,60 @@ Used to compare two values and return a Boolean result (true or false).
 | `!`          | Logical NOT                          | `!true` -> `false`     |
 
 ### 9. **Spread (`...`) and Rest (`...`) Operators**
+ #### 1. Spread Operator `(...)`
+- Purpose : Expands an iterable (like an array or object) into individual elements.
+- Use Cases: Copy arrays/objects, merge arrays/objects, or pass multiple arguments to a function.
+- The spread operator is used to expand arrays or objects into individual elements, like unpacking a bag
+  
+### 👇Example Code:
+```javascript
+// --------Example 1 With Arrays----------//
+const arr1 = [1, 2, 3];
+const arr2 = [4, 5, 6];
+const combined = [...arr1, ...arr2];
+console.log(combined); // [1, 2, 3, 4, 5, 6]
 
-- Spread: Expands elements of an array or object.
-- Rest: Collects multiple elements into an array.
+// --------Example 2 With Objects:----------//
+const obj1 = { name: "Alice" };
+const obj2 = { age: 25 };
+const merged = { ...obj1, ...obj2 };
+console.log(merged); // { name: "Alice", age: 25 }
+// --------Example 3 With Function Arguments:----------//
+function sum(a, b, c) {
+  return a + b + c;
+}
 
-| **Operator** | **Description**                    | **Example**                      |
-| ------------ | ---------------------------------- | -------------------------------- |
-| `...`        | Spread operator (expands elements) | `const newArr = [...arr, 4, 5];` |
-| `...`        | Rest operator (collects elements)  | `function sum(...args) {}`       |
+const numbers = [1, 2, 3];
+console.log(sum(...numbers)); // 6
+
+```
+
+  #### 2. Rest Operator `(...)`
+- Purpose: Collects multiple elements into a single array.
+- Use Cases: Functions with variable arguments, destructuring arrays/objects.
+- The rest operator is used to collect multiple elements into a single array or object, like packing items into a bag.
+
+  ### 👇Example Code:
+```javascript
+// --------Example 1 Array Destructuring:----------//
+const [first, ...rest] = [1, 2, 3, 4];
+console.log(first); // 1
+console.log(rest);  // [2, 3, 4]
+// --------Example 2 Object Destructuring:----------//
+const { a, ...others } = { a: 1, b: 2, c: 3 };
+console.log(a);      // 1
+console.log(others); // { b: 2, c: 3 }
+```
+  
+
+| Feature       | Spread (`...`) | Rest (`...`) |
+|---------------|----------------|--------------|
+| **Purpose**   | Expands elements of an array or object | Collects multiple elements into a single array or object |
+| **Context**   | Arrays, objects, function calls | Function parameters, array/object destructuring |
+| **Example 1** | ```js const arr1 = [1,2]; const arr2 = [3,4]; const combined = [...arr1, ...arr2]; console.log(combined); // [1,2,3,4] ``` | ```js function sumAll(...nums){ return nums.reduce((a,b)=>a+b,0); } console.log(sumAll(1,2,3)); // 6 ``` |
+| **Example 2** | ```js const obj1 = {a:1}; const obj2 = {b:2}; const merged = {...obj1,...obj2}; console.log(merged); // {a:1,b:2} ``` | ```js const [first, ...rest] = [1,2,3,4]; console.log(first); // 1 console.log(rest); // [2,3,4] ``` |
+| **Key Idea**  | “Unpack” data | “Pack” data |
+
 
 ### 10. **Delete Operator**
 
