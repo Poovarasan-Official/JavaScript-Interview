@@ -184,16 +184,18 @@ Data type is a type of data, that can be value stored in variable.
 - **Null**
 - **BigInt**
 - **Symbol**
+  
+### These are immutable, which means once the value is set, it cannot be changed directly.
 
 | **Data Type** | **Description**                                                                                                       | **Examples**                                                                                |
 | ------------- | --------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| **String**    | Text stored in single quotes, double quotes, or backticks.                                                            | `'hello'`, `"hello"`, `` `hello` ``                                                         |
-| **Number**    | Represents integer & floating numbers (decimals & exponentials).                                                      | `30`, `19.06`, `12.2e2` (1220)                                                              |
-| **Boolean**   | Represents `true` or `false`. Used for Yes or No values.                                                              | `true`, `false`                                                                             |
-| **Undefined** | Not assigned a value in a variable.                                                                                   | `let example; console.log(example);` // `undefined`                                         |
-| **Null**      | Represents an empty value or unknown value.                                                                           | `let example2 = null; console.log(example2);` // `null`                                     |
-| **BigInt**    | Represents large integers greater than `Number.MAX_SAFE_INTEGER`. Created by appending `n` to the end of the integer. | `const x = 900719925124740998n; const y = x + 1n; console.log(y);` // `900719925124740999n` |
-| **Symbol**    | Immutable value that is unique, often used as object property keys.                                                   | `const sym = Symbol('description');`                                                        |
+| **String**    | Text stored in single quotes, double quotes, or backticks. | `'hello'`, `"hello"`, `` `hello` ``|
+| **Number**    | Represents numeric values (integer or float) including decimals and exponentials. | `30`, `19.06`, `12.2e2` (1220)|
+| **Boolean**   | Represents `true` or `false`. Used for Yes or No values. | `true`, `false`|
+| **Undefined** | Not assigned a value in a variable. | `let example; console.log(example);` // `undefined`|
+| **Null**      | Represents an empty value or unknown value.| `let example2 = null; console.log(example2);` // `null`|
+| **BigInt**    | Represents very large integers beyond the safe limits of the `Number` type. <br> Created by appending `n` to the end of the integer.<br> It’s useful for large IDs, financial calculations, or any situation needing high-precision integers.<br> Regular numbers in JavaScript are limited by Number.MAX_SAFE_INTEGER `(2⁵³ - 1 = 9007199254740991)`.<br> BigInt is a special type in JavaScript for storing really large integers that `normal numbers cannot handle`.| `const x = 900719925124740998n; const y = x + 1n; console.log(y);` // `900719925124740999n`<br> `Example: 1n + 1 → ❌ TypeError` |
+| **Symbol**    | Immutable value that is unique, often used as object property keys. <br> A Symbol is a unique and immutable data type introduced in ES6. It is mostly used to create **unique keys** in objects, especially to **avoid property name conflicts** in large projects or libraries. | `const id1 = Symbol("id");`<br> `const id2 = Symbol("id");`<br> `console.log(id1 === id2); // false` |
 
 #### ii. Non-Primitive Data Types
 
@@ -202,11 +204,13 @@ Data type is a type of data, that can be value stored in variable.
 - **Function**
 - **Date**
 
+#### 👉 They are mutable, which means we can change their values or structure.
+
 ### i. Object
 
 "An object is a collection of key-value pairs. Each key-value pair is called a property. It stores collections of different types of data. The property key is always a string, but the value can be any data type, such as a string, number, array, etc."
 
-### Example Code:
+### 👇Example Code:
 
 ```javascript
 const person = {
