@@ -185,7 +185,7 @@ Data type is a type of data, that can be value stored in variable.
 - **BigInt**
 - **Symbol**
   
-### These are immutable, which means once the value is set, it cannot be changed directly.
+### 👉 These are immutable, which means once the value is set, it cannot be changed directly.
 
 | **Data Type** | **Description**                                                                                                       | **Examples**                                                                                |
 | ------------- | --------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
@@ -204,7 +204,7 @@ Data type is a type of data, that can be value stored in variable.
 - **Function**
 - **Date**
 
-#### 👉 They are mutable, which means we can change their values or structure.
+### 👉 They are mutable, which means we can change their values or structure.
 
 ### i. Object
 
