@@ -1012,7 +1012,7 @@ A Promise is an object that handles async tasks and gives a result (success or e
 #### A Promise can be three states
 
 - ⏳ `Pending` – Initial state, operation not completed yet.
-- ✅ `Fulfilled` – Operation completed successfully → .then() is called.
+- ✅ `Fulfilled (Resolved)` – Operation completed successfully → .then() is called.
 - ❌ `Rejected` – Operation failed → .catch() is called.
 
 #### Methods
