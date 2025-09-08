@@ -1059,13 +1059,35 @@ votePromise
 
 `async` and `await` are modern JavaScript features introduced in ES2017 (ES8) to handle asynchronous operations
 
-- `async` "The async keyword is used to declare an asynchronous function, which always returns a promise."
-- `await` "The await keyword can only be used inside an `async` function. It pauses the execution of the `async` function until the promise is settled (either resolved or rejected). Once the promise is settled, the `await` expression evaluates to the resolved value of the promise or throws an error if the promise is rejected."
+`async` and `await` are special keywords in JavaScript used to work with Promises more easily, making asynchronous code look and behave like synchronous code.
+
+- `async` The async keyword is used to declare an asynchronous function, which always returns a promise.
+- `await` The await keyword can only be used inside an `async` function. It pauses the execution of the `async` function until the promise is settled (either resolved or rejected). Once the promise is settled and returns the result.
 - `Error Handling` Errors can be handled using `try...catch`, making the code cleaner.
 
 ### Example Code:
 
 ```javascript
+// <---------Example : 1--------->
+// Simulating an asynchronous task
+function fetchData() {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve("Data fetched successfully!");
+    }, 2000);
+  });
+}
+
+// Using async and await
+async function getData() {
+  console.log("Fetching data...");
+  const result = await fetchData();  // Wait for Promise to resolve
+  console.log(result);
+  console.log("Done!");
+}
+getData();
+
+// <---------Example : 2--------->
 async function fetchUserAsync() {
   try {
     const response = await fetch("https://api.example.com/data");
@@ -1077,6 +1099,7 @@ async function fetchUserAsync() {
 }
 
 fetchUserAsync();
+
 ```
 
 <!-- Question 16 -->
