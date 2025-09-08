@@ -1006,19 +1006,22 @@ for (let i = 1; i <= 5; i++) {
 
 ### Answer :
 
-A Promise in JavaScript is an object that represents the eventual completion (or failure) of an asynchronous operation and its resulting value
+✨ A Promise is a special JavaScript object that helps handle asynchronous operations (like fetching data from an API or reading a file).
+A Promise is an object that handles async tasks and gives a result (success or error) in the future.
 
 #### A Promise can be three states
 
-- `Pending` Initial state, neither fulfilled nor rejected.
-- `Fulfilled` The operation was completed successfully, and the promise is resolved with a value.
-- `Rejected` The operation failed, and the promise is rejected with a reason (an error or message).
+- ⏳ `Pending` – Initial state, operation not completed yet.
+- ✅ `Fulfilled` – Operation completed successfully → .then() is called.
+- ❌ `Rejected` – Operation failed → .catch() is called.
 
 #### Methods
 
 - `.then()` Used to handle the fulfilled state.
 - `.catch()` Used to handle the rejected state.
 - `.finally()` Used to execute code regardless of whether the promise is fulfilled or rejected. To perform cleanup tasks.
+- `Promise.all()` Takes an array of promises and resolves when all promises are resolved, or rejects if any one fails.
+- `Promise.race()` Resolves or rejects as soon as any one of the promises is resolved/rejected.
 
 ### Example Code:
 
