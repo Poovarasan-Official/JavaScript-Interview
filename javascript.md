@@ -603,15 +603,14 @@ switch (day) {
 
 A function in JavaScript is a reusable block of code that performs a specific task. It's a fundamental building block in JavaScript programming.
 
-### ✏️JavaScript has Several types of functions:
+### ✨ JavaScript has Several types of functions:
 
-- Named Function
-- Anonymous Function
-- Arrow Function
-- Generator Function
-- Constructor Function
-- Methods
-- IIFE (Immediately Invoked Function Expression)
+- Normal Function (Named Function)
+- Anonymous Function (Without Named Function)
+- Arrow Function (ES6 Feature) → Short syntax, no own this
+- Immediately Invoked Function Expression (IIFE) → Self-executing
+- Higher-Order Function (HOC) → Takes function as argument or returns function
+- Recursive Function → Calls itself
 
 | **Aspect**            | **Arrow Function**                          | **Regular Function**                        |
 | --------------------- | ------------------------------------------- | ------------------------------------------- |
@@ -621,82 +620,93 @@ A function in JavaScript is a reusable block of code that performs a specific ta
 | **Prototype**         | No `prototype` property                     | Has a `prototype` property                  |
 | **Arguments Object**  | Does not have `arguments`                   | Has `arguments`                             |
 
-#### i. Named Function:
-
-#### ✨Basic Syntax:
-
-```javascript
-function functionName(parameter1, parameter2, ...) {
-  // Code to be executed
-  return value; // Optional return statement
-}
-functionName();  // call the function
-```
+#### i. Normal Function (Named Function, A function with a name, hoisted by JS.):
+- It is used to group reusable code into a block and can be called by its name whenever needed.
+- Accepts parameters and can return a value.
+- Hoisted → Can be called before declaration.
 
 ### Example Code:
 
 ```javascript
-// Example 1
+// <---------Example : 1--------->
 function greet() {
-  console.log("Hello, world!");
-  // Output: ✅ Hello, world!
+  console.log("Hello World");
 }
 
-greet(); // Calling the function
+greet(); // Hello World
+// <---------Example : 2--------->
 
-// Example 2 with parameter
-function greet(name) {
-  console.log("Hello, " + name + "!");
-  // ✅ Output: Hello, Poovarasan!
+// Function Declaration
+console.log(add(2, 3)); // ✅ Works (Hoisting)
+function add(a, b) {
+  return a + b;
 }
 
-greet("Poovarasan"); // Calling the function
-
-// Example 3
-function greet(x, y) {
-  return x + y;
-}
-
-let result = greet(5, 3); // Calling the function
-console.log(result); // ✅ Output: 8
-```
-
-#### ii. Arrow Function:
-
-An arrow function is a concise syntax to write functions in JavaScript, introduced in ES6 (ECMAScript 2015).
-
-#### ✨Basic Syntax:
-
-```javascript
-(parameters) => {
-  // function body
+// Function Expression
+// console.log(sub(5, 2)); ❌ Error (Not Hoisted)
+const sub = function(a, b) {
+  return a - b;
 };
+console.log(sub(5, 2)); // 3
+
 ```
+#### ii. Anonymous Function:
+A function without a name, usually assigned to a variable or used as a callback.
 
 ### Example Code:
+```javascript
+let greet = function() {
+  console.log("Hello!");
+};
+
+greet(); // Hello!
+
+```
+
+#### iii. Arrow Function (ES6 Feature):
+An arrow function is a (`=>`)short syntax function in JavaScript (introduced in ES6) that does not have its own this and cannot be used as a constructor.
+
+- Does not have its own this keyword; instead, it inherits this from the surrounding (lexical) scope.
+- Cannot be used as a constructor (you cannot use new with an arrow function).
+- Ideal for simple functions, especially as callbacks or short utility functions.
+
+
+#### ✨ Example Code:
 
 ```javascript
-// Example 1
-const greet = (name) => {
-  console.log("Hello, " + name + "!");
-  // ✅ Output: Hello, Poovarasan!
+// <---------Example : 1--------->
+const add = (a, b) => a + b;
+console.log(add(5, 3));  // Output: 8
+
+// <---------Example : 2--------->
+const greet = (name) => `Hello, ${name}`;
+console.log(greet("Arun")); // Hello, Arun
+
+// <---------Example : 3--------->
+const person = {
+  name: "Arun",
+  greet: () => {
+    console.log(this.name);
+  }
 };
 
-greet("Poovarasan");
+person.greet();  // Output: undefined (because arrow function uses lexical this)
 
-// Example 2
-const greet = (name) => `Hello, ${name}!`;
-console.log(greet("Poovarasan"));
-// ✅ Output: Hello, Poovarasan!
-
-// Example 3
-const multiply = (a, b) => {
-  const product = a * b;
-  return product;
+// <---------Example : 4--------->
+const person = {
+  name: "Arun",
+  greetNormal: function() {
+    console.log("Normal Function:", this.name);
+  },
+  greetArrow: () => {
+    console.log("Arrow Function:", this.name);
+  }
 };
-console.log(multiply(3, 4)); // Output: 12
 
-// Example 4
+person.greetNormal();  // Output: Normal Function: Arun  
+person.greetArrow();   // Output: Arrow Function: undefined
+
+// <---------Example : 5--------->
 const obj = {
   name: "Poovarasan",
   greet: function () {
