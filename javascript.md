@@ -775,11 +775,39 @@ console.log(factorial(5)); // 120
 ```
 
 
-
-
 <!-- Question 9 -->
 
-## 9. Explain the `call`, `apply`, and `bind` methods in JavaScript?
+## 9. What is a Callback Function in JavaScript?
+
+### Answer :
+
+A callback function is a function that is passed as an argument to another function and is executed after some operation or event.
+
+### Example Code:
+
+```javascript
+function fetchData(callback) {
+  console.log("Fetching data...");
+  setTimeout(() => {
+    console.log("Data fetched!");
+    callback();
+  }, 2000);
+}
+
+function processData() {
+  console.log("Processing data...");
+}
+
+fetchData(processData);
+// Output:
+// Fetching data...
+// Data fetched!
+// Processing data...
+```
+
+<!-- Question 10 -->
+
+## 10. Explain the `call`, `apply`, and `bind` methods in JavaScript?
 
 ### Answer :
 
@@ -822,35 +850,7 @@ const boundFullName = person.fullName.bind(person1, "Paris", "France");
 console.log(boundFullName()); // ✅ Output: Poovarasan R from Paris, France
 ```
 
-<!-- Question 10 -->
 
-## 10. What is a Callback Function in JavaScript?
-
-### Answer :
-
-A callback function is a function that is passed as an argument to another function and is executed after some operation or event.
-
-### Example Code:
-
-```javascript
-function fetchData(callback) {
-  console.log("Fetching data...");
-  setTimeout(() => {
-    console.log("Data fetched!");
-    callback();
-  }, 2000);
-}
-
-function processData() {
-  console.log("Processing data...");
-}
-
-fetchData(processData);
-// Output:
-// Fetching data...
-// Data fetched!
-// Processing data...
-```
 
 <!-- Question 11 -->
 
