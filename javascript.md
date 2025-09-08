@@ -605,8 +605,8 @@ A function in JavaScript is a reusable block of code that performs a specific ta
 
 ### ✨ JavaScript has Several types of functions:
 
-- Normal Function (Named Function)
-- Anonymous Function (Without Named Function)
+- Normal Function → (Named Function)
+- Anonymous Function → (Without Named Function)
 - Arrow Function (ES6 Feature) → Short syntax, no own this
 - Immediately Invoked Function Expression (IIFE) → Self-executing
 - Higher-Order Function (HOC) → Takes function as argument or returns function
@@ -620,7 +620,7 @@ A function in JavaScript is a reusable block of code that performs a specific ta
 | **Prototype**         | No `prototype` property                     | Has a `prototype` property                  |
 | **Arguments Object**  | Does not have `arguments`                   | Has `arguments`                             |
 
-#### i. Normal Function (Named Function, A function with a name, hoisted by JS.):
+#### 1. Normal Function (Named Function, A function with a name, hoisted by JS.):
 - It is used to group reusable code into a block and can be called by its name whenever needed.
 - Accepts parameters and can return a value.
 - Hoisted → Can be called before declaration.
@@ -650,20 +650,26 @@ const sub = function(a, b) {
 console.log(sub(5, 2)); // 3
 
 ```
-#### ii. Anonymous Function:
+#### 2. Anonymous Function:
 A function without a name, usually assigned to a variable or used as a callback.
 
 ### Example Code:
 ```javascript
+// <---------Example : 1--------->
 let greet = function() {
   console.log("Hello!");
 };
-
 greet(); // Hello!
+
+// <---------Example : 2--------->
+setTimeout(function() {
+  console.log("Executed after 1 second");
+}, 1000);
+
 
 ```
 
-#### iii. Arrow Function (ES6 Feature):
+#### 3. Arrow Function (ES6 Feature):
 An arrow function is a (`=>`)short syntax function in JavaScript (introduced in ES6) that does not have its own this and cannot be used as a constructor.
 
 - Does not have its own this keyword; instead, it inherits this from the surrounding (lexical) scope.
@@ -717,6 +723,59 @@ const obj = {
 };
 obj.greet(); // Output: Hello, Poovarasan!
 ```
+#### 4️. IIFE (Immediately Invoked Function Expression): Self-executing function.
+An IIFE (Immediately Invoked Function Expression) is a function that runs immediately after being defined, used to create a private scope and avoid global scope pollution.
+It does not need to be called separately because it runs automatically.
+
+🎯 Shortcut Analogy:
+“Like a secret machine ⚙️: Build it and it runs automatically, keeps everything inside private.”
+
+#### ✨ Example Code:
+```javascript
+// <---------Example : 1--------->
+(() => {
+  console.log("Arrow IIFE runs immediately!");
+})();
+
+// <---------Example : 2--------->
+(function() {
+  let secret = "This is private";
+  console.log("IIFE runs immediately!");
+})();
+
+// console.log(secret);  // ❌ Error: secret is not defined
+```
+
+#### 5. Higher Order Function: Takes function as argument or returns a function.
+#### ✨ Example Code:
+```javascript
+
+```
+
+
+
+#### 6. Recursion Function (factorial, Fibonacci, reverse string, etc.): A function that calls itself.
+A Recursive Function is a function that calls itself to solve a smaller part of the same problem until a base condition is met.
+
+- The function keeps calling itself with n - 1
+- Until n === 0 (base case), then starts returning the result step by step
+- Base condition important ✅ (Otherwise infinite loop).
+- Example: Factorial, Fibonacci, Reverse String, etc.
+  
+#### ✨ Example Code:
+```javascript
+function factorial(n) {
+  if (n === 0) return 1; 
+  return n * factorial(n - 1);
+}
+
+console.log(factorial(5)); // 120
+// ✅ Function calls itself until n === 0.
+
+```
+
+
+
 
 <!-- Question 9 -->
 
